@@ -1,0 +1,12 @@
+SELECT patient_id, 
+UPPER(name) AS Patient_Name,
+LOWER(service) AS Service,
+CASE 
+	WHEN  age >= 65 THEN 'Senior'
+    WHEN age >= 18 THEN 'Adult'
+    ELSE 'Minor'
+END AS AGE_CATEGORY,
+LENGTH(name) AS Name_Length
+FROM patients
+WHERE LENGTH(name) > 10; 
+
