@@ -1,0 +1,7 @@
+SELECT service,
+       ROUND(AVG(DATEDIFF(departure_date, arrival_date)), 2) AS AVG_Number_Of_Days_Stay,
+       COUNT(patient_id) AS Patient_id
+FROM patients
+GROUP BY service
+HAVING AVG_Number_Of_Days_Stay > 7
+ORDER BY AVG_Number_Of_Days_Stay DESC; 
